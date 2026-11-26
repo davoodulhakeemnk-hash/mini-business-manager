@@ -27,9 +27,10 @@ jobs:
           gradle-version: '8.9'
 
       - name: Build Android APK
-        run: gradle assembleDebug
+        run: gradle assembleDebug --stacktrace --info
 
       - name: Upload APK
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: Mini-Business-Manager-APK
